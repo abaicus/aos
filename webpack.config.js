@@ -6,12 +6,12 @@ module.exports = {
   entry: './src/js/aos.js',
   devtool: 'source-map',
   output: {
-    path: './dist',
-    publicPath: 'dist/',
-    filename: 'aos.js',
+    path: './../hestia-pro/assets/js',
+    publicPath: '../hestia-pro/assets/js/',
+    filename: 'aos.min.js',
     library: 'AOS',
     libraryTarget: 'umd',
-    sourceMapFilename: '[file].map'
+    sourceMap: false
   },
   devServer: {
     contentBase: 'demo/'
@@ -24,12 +24,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract("style-loader", "css-loader?sourceMap!sass-loader!postcss-loader")
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader!postcss-loader")
       }
     ]
   },
   plugins: [
-    new ExtractTextPlugin('aos.css'),
+    new ExtractTextPlugin('aos.min.css'),
     new webpack.optimize.UglifyJsPlugin()
   ]
 }
